@@ -1,15 +1,21 @@
 -- harmony and melody quick overview: http://tidalcycles.org/docs/reference/harmony_melody/
-
+hush
 -- some sample folders have different pitcehd sounds which can be used for melodies
 d1 $ s "arpy*16" # n (run 16) # room 0.4
+d1 $ s "arpy" <| n "{0 1 2 3 4}%16" # room 0.4 -- keep the speed while dividing up the beats
+d1 $ s "arpy*6" # n "0 1 2 3 4" # room 0.4
+d1 $ s "arpy*5" # n "1 2 3 4 5" # room 0.4 -- pentonic scale
 
--- major scale by numbers, each number is a semitone
+-- major scale (skipping black keys in piano) by numbers, each number is a semitone
+-- * - pianotec 8
 d1 $ s "sine*8" # up "0 2 4 5 7 9 11 12" # room 0.4
 
 -- scale by notes
-d1 $ s "sine*8" # up "c d e f g a b c6" # room 0.4
+-- this is same as the code above
+d1 $ s "sine*8" # up "c d e f g a b c6" # room 0.4 -- by default, code starts from octave 5
+d1 $ s "sine*8" # up "c5 d5 e5 f5 g5 a5 b5 c6" # room 0.4
 
--- flast or sharps can be given with an f or an s
+-- flats or sharps can be given with an f or an s
 d1 $ s "sine*8" # up "c d e f g a bf c6" # room 0.4
 
 -- the scale function interprets a pattern of note numbers into a particular named scale
@@ -24,6 +30,9 @@ d1 $ s "sine*8" # note ((scale "pelog" "0 .. 7")+4) # room 0.4
 
 -- print out a list of scales
 scaleList
+
+d1 $ s "sine*8" # note (scale "pent" "0 .. 8") # room 0.4
+d1 $ s "sine*8" # note (scale "majPent" "0 .. 8") # room 0.4
 
 -- palindrome reverse pattern every other cycle
 d1 $ palindrome $ s "sine*8" # note ((scale "pelog" "0 .. 7")+4) # room 0.4

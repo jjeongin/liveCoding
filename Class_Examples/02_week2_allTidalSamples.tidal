@@ -226,7 +226,7 @@ d1 $ s "ul" <| n (run 10) -- sort of hits/kit, some character, verby, loud
 d1 $ s "ulgab" <| n (run 5) -- short bitcrushed hits, usable
 d1 $ s "uxay" <| n (run 3) -- one kick and two other sounds
 d1 $ s "v" <| n (run 6) -- 6 mixed electronic sounds, kind of a kit
-d1 $ s "voodoo" <| n (run 5) -- actually quite a nice five sound kit
+d1 $ s "voodoo" <| n (run 5) -- actuallxy quite a nice five sound kit
 d1 $ slow 2 $ s "wind" <| n (run 10) -- actually filtered white noise hits
 d1 $ s "wobble" -- one subbass hit
 d1 $ s "world" <| n (run 3) -- three kit hits, meh

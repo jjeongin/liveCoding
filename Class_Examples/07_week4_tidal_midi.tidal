@@ -1,10 +1,17 @@
 -- beat
 d1 $ sound "[<808bd:4(3,8) 808bd:4(5,8) 808bd:4(3,8) 808bd:4>, ~ 808:3]" # room 0.95 # krush 9 # speed (slow 4 ("<1.5 1>"))
 
+setcps (135/60/4)
+d1 $ s "house:8" # gain "1.3"
+
+hush
+
 -- hydra noise value
 -- ccv are the values we're sending, they need to be between 0 and 127 inclusive
 -- ccn is the cc number, the "connector" or "route" we will send things through
 d2 $ ccv "0 20 64 127" # ccn "0" # s "midi"
+
+d2 $ ccv "0 127 30 60 30 127 0 60" # ccn "0" # s "midi"
 
 -- can be simple!
 d2 $ ccv "<127 0 127 0>" # ccn "0" # s "midi"
@@ -12,6 +19,8 @@ d2 $ ccv "<127 0 127 0>" # ccn "0" # s "midi"
 -- use segment to break up the conituous pattern into 128 divisions
 -- to get get a smooth saw wave for the ccv
 d2 $ ccv (segment 128 (range 127 0 saw)) # ccn "0" # s "midi"
+d2 $ ccv (segment 16 (range 127 0 saw)) # ccn "0" # s "midi" -- more glithcy
+d2 $ ccv (segment 4 (range 127 0 saw)) # ccn "0" # s "midi" -- looks like screens are transitioning
 
 -- adjust every cycle with saw wave with every 4 cycles double speed
 d2 $ rotL 1 $ every 4 (# ccv (fast 2 (range 127 0 saw))) $ ccv (segment 128 (range 127 0 saw)) # ccn "0"  # s "midi"
