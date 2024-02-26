@@ -16,7 +16,7 @@ d2 $ ccv "0 127 30 60 30 127 0 60" # ccn "0" # s "midi"
 -- can be simple!
 d2 $ ccv "<127 0 127 0>" # ccn "0" # s "midi"
 
--- use segment to break up the conituous pattern into 128 divisions
+-- use segment to break up the continuous pattern into 128 divisions
 -- to get get a smooth saw wave for the ccv
 d2 $ ccv (segment 128 (range 127 0 saw)) # ccn "0" # s "midi"
 d2 $ ccv (segment 16 (range 127 0 saw)) # ccn "0" # s "midi" -- more glithcy
