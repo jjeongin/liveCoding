@@ -1,5 +1,5 @@
 //three values, two used for noise and added together, and the third for luma
-osc(200,0.01,1).rotate(1).layer(osc(30,0,1).luma(0.2,.2).color(0,0,0,1)).layer(osc(30,0,1).luma(()=>cc[2],0.01)).modulate(noise(()=>(cc[0]+cc[1])*3,.1)).out(o0)
+osc(200,0.01,1).rotate(1).layer(osc(30,0,1).luma(0.2,.2).color(0,0,0,1)).layer(osc(30,0,1).luma(()=>cc[0],0.01)).modulate(noise(()=>(cc[0]+cc[1])*3,.1)).out(o0)
 
 solid().out()
 

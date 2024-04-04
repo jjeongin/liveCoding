@@ -142,8 +142,8 @@ d1 $ s "kicklinn!4" -- wisott
 d1 $ slow 4 $ s "koy" <| n 1 -- two koyaanisqatsi long samples, more or less sample
 d1 $ slow 4 $ s "kurt" <| n (run 7) -- vocal samples with telephone eq?
 d1 $ slow 2 $ s "latibro" <| n (run 8) -- pentatonic selection of open 12th synth samples
--- d1 $ s "latibro" # n 0
--- d2 $ s "superpiano" # n "[b3,fs4]"
+d1 $ s "latibro" # n 0
+d2 $ s "superpiano" # n "[b3,fs4]"
 d1 $ slow 4 $ s "led" -- two and a bit sample of drums plus intro bleed
 d1 $ loopAt 2 $ s "led" # end 0.5 -- not quite right
 d1 $ slow 2 $ s "led" # speed (0.835/2) # unit "c" # end 0.835 -- yaxu

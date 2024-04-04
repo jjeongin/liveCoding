@@ -9,22 +9,31 @@ d1 $ sound "bev" # cut 1
 -- legato
 d1 $ sound "bev ~ bev ~" # legato 1
 
+-- cut & legato chops off the sample so that it doesn't overlap
+-- cut chops off the sample as soon as the next one triggers
+-- cut n: if two sounds have '# cut 1' (same value for n), it will cut off the sounds to sync two sounds
+
 -- chop
 d1 $ chop 16 $ sound "bev" # cut 1
 
 -- gap
 d1 $ gap 16 $ sound "bev" # legato 1
 
+-- chop is same as gap except that gap has gaps between each sound
+
+
 -- striate
 d1 $ striate 16 $ sound "bev" # cut 1
 
 -- difference between striate and chop
 d1 $ sound "numbers:0 numbers:1 numbers:2 numbers:3"
-d1 $ chop 4 $ sound "numbers:0 numbers:1 numbers:2 numbers:3"
-d1 $ striate 4 $ sound "numbers:0 numbers:1 numbers:2 numbers:3"
+d1 $ chop 4 $ sound "numbers:0 numbers:1 numbers:2 numbers:3" -- chops off each sound to 4
+d1 $ striate 4 $ sound "numbers:0 numbers:1 numbers:2 numbers:3" --
 
 -- striateBy
-d1 $ slow 32 $ striateBy 32 (1/4) $ sound "bev"
+d1 $ slow 32 $ striateBy 32 (1/4) $ sound "bev" -- divide into 32 samples and each sample will take 1/4 length of the original sample
+-- slow and striateBy values are both 32 so each chopped sample will be played for 1 cycle
+
 -- without by
 d1 $ slow 32 $ striate 32 $ sound "bev"
 

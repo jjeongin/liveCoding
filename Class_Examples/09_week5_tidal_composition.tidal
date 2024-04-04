@@ -46,6 +46,8 @@ d3 $ qtrigger $ filterWhen (>=0) $ seqP [
   (3,4, s "feel:2*32")
 ] # room 0.3 # hpf (slow 4 (1000*saw + 100)) # speed (slow 4 (range 1 2 saw))
 
+#djf -- 0-0.5 lpf, 0.5-1 hpf
+
 -- put together with rising percussion pitch
 d2 $ qtrigger $ filterWhen (>=0) $ stack[
   s "~ cp" # room 0.5,
